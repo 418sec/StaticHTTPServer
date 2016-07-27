@@ -1,6 +1,6 @@
 {
   "name": "statichttpserver",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "HTTP Server for static files (inspired by SimpleHTTPServer.py)",
   "author": "Jason Benson <repos@jasonbenson.com>",
   "main": "index.js",
