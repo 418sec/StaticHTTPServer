@@ -26,7 +26,7 @@ function log(request, response) {
 		'%s %j - %j - %s',
 		request.connection.remoteAddress,
 		new Date(),
-		util.format('%s %s HTTP/%s', request.method, unescape(url.parse(request.url).path), request.httpVersion),
+		util.format('%s %s HTTP/%s %s', request.method, unescape(url.parse(request.url).path), request.httpVersion, response.statusCode),
 		request.headers['user-agent']);
 }
 
@@ -45,11 +45,11 @@ function directoryList(request, response, filePath) {
 		const displayPath = unescape(url.parse(request.url).path);
 		var title = 'Index of "' + displayPath + '"';
 		var itemsHtml = [];
-		var relativePath = filePath.slice(contentDirectory.length);
+		var relativePath = filePath.slice(contentDirectory != './' ? contentDirectory.length : 0);
 
 		itemsHtml.push('			<li><a href="../">../</a></li>');
 		items.forEach(function (item) {
-			itemsHtml.push('			<li><a href="' + path.join(relativePath, encodeURIComponent(item)) + '">' + item + '</a></li>');
+			itemsHtml.push('			<li><a href="/' + path.join(relativePath, encodeURIComponent(item)) + '">' + item + '</a></li>');
 		});
 
 		const html = '<!DOCTYPE html>\n' +
