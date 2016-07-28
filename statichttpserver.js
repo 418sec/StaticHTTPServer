@@ -82,7 +82,7 @@ if (config.help === true) {
 var server = http
 	.createServer((request, response) => {
 		//get the url and handle special characters
-		const uri = unescape(url.parse(request.url).path);
+		const uri = unescape(url.parse(request.url).pathname);
 
 		//don't reply with this script
 		if (uri == '/index.js' && contentDirectory == __dirname) {
