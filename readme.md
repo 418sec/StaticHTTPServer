@@ -4,7 +4,7 @@ StaticHTTPServer is inspired by [SimpleHTTPServer.py](https://docs.python.org/2/
 
 ## Prerequisites
 
-- Node.js v4.4.5 or greater
+- Node.js v6 or greater (For Node.js 4, install version 0.9.4)
 
 ## Installation
 

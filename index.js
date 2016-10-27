@@ -1,11 +1,11 @@
 'use strict';
-const staticHTTPServer = require('./lib/statichttpserver');
+const staticHTTPServer = require('./lib');
 
 if (staticHTTPServer.helpText) {
 	console.log(staticHTTPServer.helpText);
 }
 else {
-	staticHTTPServer.listen();
+	staticHTTPServer.start();
 
 	//listen for exit
 	process.stdin
@@ -14,10 +14,9 @@ else {
 			var chunk = process.stdin.read();
 			if (chunk != null) {
 				if (chunk.toString().indexOf('exit') == 0) {
-
-					// todo: if used in production this is less than ideal
-					// todo: close all sockets and call server.close();
-					process.exit(0);
+					staticHTTPServer.stop(function (err) {
+						process.exit(0);
+					});
 				}
 			}
 		});
