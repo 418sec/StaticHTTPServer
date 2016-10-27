@@ -1,30 +1,42 @@
 {
   "name": "statichttpserver",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "HTTP Server for static files (inspired by SimpleHTTPServer.py)",
   "author": "Jason Benson <repos@jasonbenson.com>",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint --ignore-path=.gitignore **/*.js",
+    "test": "mocha test"
   },
   "bin": {
     "statichttpserver": "lib/bin.js",
     "StaticHTTPServer": "lib/bin.js"
   },
   "engine": {
-    "node": ">= 4.4.5"
+    "node": ">= 6.0.0"
   },
   "keywords": [
     "StaticHTTPServer",
     "SimpleHTTPServer",
-    "static"
+    "static",
+    "http",
+    "server"
   ],
   "dependencies": {},
   "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "eslint-plugin-mocha": "^4.7.0",
+    "mocha": "^3.0.2",
+    "request": "^2.74.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jwbenson/statichttpserver"
+  },
+  "bugs": {
+    "url": "https://github.com/jwbenson/statichttpserver/issues"
   },
   "licenses": [
     {
